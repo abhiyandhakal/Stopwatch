@@ -1,4 +1,3 @@
-const buttons_button = document.querySelectorAll('button');
 const btnStart_button = document.getElementById('btn-start');
 const btnPause_button = document.getElementById('btn-pause');
 const btnReset_button = document.getElementById('btn-reset');
@@ -11,12 +10,6 @@ let stopwatch;
 let hour = 0;
 let minute = 0;
 let second = 0;
-
-buttons_button.forEach((button)=> {
-   button.addEventListener('click', ()=> {
-      controlAudio(audio);
-   })
-})
 
 function writingTime(time, time_span) {
    if (time < 10) {
@@ -62,6 +55,10 @@ btnReset_button.addEventListener('click', () => {
    hour_span.innerHTML = '00';
    minute_span.innerHTML = '00';
    second_span.innerHTML = '00';
+
+   hour = 0;
+   minute = 0;
+   second = 0;
    
    btnStart_button.disabled = false;
    btnPause_button.disabled = false;
