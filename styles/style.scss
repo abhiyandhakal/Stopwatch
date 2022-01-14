@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+
+$background-color: #1d1e22;
+$text-color: white;
+$font-size: 16px;
+$btn-border-color: grey;
+$h1-color: #0ff;
+
+:root {
+   font-size: $font-size;
+
+   @media (max-width: 22rem) {
+      font-size: 11px;
+   }
+}
+
+:focus {
+   outline: none;
+}
+
+*,
+*::after,
+*::before {
+   margin: 0;
+   padding: 0;
+   user-select: none;
+}
+
+body,
+button {
+   font-family: "Varela Round", sans-serif;
+   background-color: $background-color;
+   color: $text-color;
+}
+body {
+   min-height: 100vh;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+
+   h1 {
+      padding: 3rem .25rem;
+      a {
+         text-transform: uppercase;
+         font-size: 5rem;
+         font-size: clamp(3rem, 5vw, 6vw);
+         color: $h1-color;
+         text-shadow: 0 0 2em $h1-color;
+         text-decoration: none;
+      }
+   }
+
+   .stopwatch {
+      font-size: 2rem;
+   }
+
+   .btns {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+   }
+
+   button {
+      padding: 1rem;
+      margin: 1rem;
+      font-size: 1.75rem;
+      width: 5em;
+      border-radius: 0.4em;
+      transition: all 300ms ease;
+      border: $btn-border-color;
+      box-shadow: $btn-border-color 0 0 0.5em;
+      position: relative;
+
+      &::after {
+         content: "";
+         display: block;
+         height: 0.08em;
+         background-color: $btn-border-color;
+         box-shadow: $btn-border-color 0 0 0.25em;
+         border-radius: 50%;
+         transform: scale(0, 0);
+         transition: all 400ms ease;
+      }
+
+      &:hover,
+      &:focus {
+         background-color: $text-color;
+         color: $background-color;
+         cursor: pointer;
+
+         &::after {
+            transform: scale(1, 1);
+         }
+      }
+   }
+}
+
+#audio-controller{
+   position: absolute;
+   top: 0;
+   right: 0;
+}
